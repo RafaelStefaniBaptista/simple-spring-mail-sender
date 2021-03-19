@@ -1,0 +1,41 @@
+server:
+  port: 8100
+  servlet:
+    context-path: /simple-spring-mail-sender
+
+security:
+  jwt:
+    secret: "crescer-2018-2-java-jwt"
+    expiration: 86400000 # 1 dia em milisegundos
+  public:
+    path: "/public/**"
+
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  datasource:
+    url: jdbc:oracle:thin:@localhost:1521:xe
+    username: ME_LEVA_AI
+    password: 123
+    driver-class-name: oracle.jdbc.OracleDriver
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: your.email@gmail.com
+    password: YOURPASSWORD
+    test-connection: true
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          ssl:
+            enable: false
